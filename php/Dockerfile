@@ -19,3 +19,5 @@ RUN curl -sS https://get.symfony.com/cli/installer | bash
 RUN mv /root/.symfony5/bin/symfony /usr/local/bin/symfony
 
 RUN composer create-project --no-interaction symfony/website-skeleton ./ ^4.4.0
+
+RUN usermod -u 1000 www-data
