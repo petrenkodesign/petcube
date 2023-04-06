@@ -1,0 +1,32 @@
+{# templates/profile/index.html.twig #} {% extends 'base.html.twig' %} 
+{% block body %}
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-6 mx-auto">
+        <div class="card bg-light mb-3 mt-5">
+          <div class="card-body">
+            <div class="card-header bg-dark text-light">
+              <i class="fa fa-btn fa-user"></i> User profile
+            </div>
+            <table class="table">
+              {% for key, item in user %}
+                <tr>
+                  <td>{{ key }}</td>
+                  <td>{{ item }}</td>
+                </tr>
+              {% endfor %}
+                <tr>
+                  <td colspan="2" align="right">
+                    <a class="btn btn-dark" href="{{ path('registration') }}">
+                      <i class="fa fa-key" aria-hidden="true"></i> Change password
+                    </a>
+                  </td>
+                </tr>
+            </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

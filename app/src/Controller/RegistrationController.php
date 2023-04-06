@@ -23,6 +23,10 @@ class RegistrationController extends AbstractController
      */
     public function index(Request $request)
     {
+        if ($this->getUser()) {
+            return $this->redirectToRoute('profile');
+        }
+        
         $user = new User();
 
         $form = $this->createForm(UserType::class, $user);
@@ -36,12 +40,15 @@ class RegistrationController extends AbstractController
             // Set their role
             $user->setRoles(['ROLE_USER']);
 
+            //Set approved to false
+            $user->setApproved(false);
+
             // Save
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
 
-            return $this->redirectToRoute('app_login');
+            return $this->redirectToRoute('login');
         }
 
         return $this->render('registration/index.html.twig', [

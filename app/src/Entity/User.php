@@ -32,7 +32,7 @@ class User implements UserInterface
      * @var string The hashed password
      * @ORM\Column(type="string")
      */
-    private $password;
+    private $password="";
 
     /**
      * @ORM\Column(type="string", length=200)
@@ -40,7 +40,7 @@ class User implements UserInterface
     private $name;
 
     /**
-     * @ORM\Column(type="blob")
+     * @ORM\Column(type="boolean")
      */
     private $approved;
 
@@ -147,5 +147,15 @@ class User implements UserInterface
         $this->approved = $approved;
 
         return $this;
+    }
+
+    public function profile() {
+        return [
+            'id' => $this->getId(),
+            'email' => $this->getEmail(),
+            'name' => $this->getName(),
+            'approved' => $this->getApproved() ? 'Yes' : 'No',
+            'roles' => implode(', ', $this->getRoles()),
+        ];
     }
 }
