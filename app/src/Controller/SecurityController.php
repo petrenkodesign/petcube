@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
+
 class SecurityController extends AbstractController
 {
     /**
@@ -24,8 +25,20 @@ class SecurityController extends AbstractController
      */
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
-        if ($this->getUser()) {
-            return $this->redirectToRoute('profile');
+        if ($this->getUser()) 
+        {
+            if($this->getUser()->getRoles()[0] == 'ROLE_ADMIN') // if user is admin
+            {
+                return $this->redirectToRoute('admin');
+            } 
+            else if($this->getUser()->getApproved()) // if user is approved
+            {
+                return $this->redirectToRoute('profile');
+            }
+            else // if user is not approved
+            {
+                $error = new AuthenticationException('Your account is not approved yet.');
+            }
         }
 
         // get the login error if there is one
