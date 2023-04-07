@@ -8,6 +8,11 @@
             <div class="card-header bg-dark text-light">
               <i class="fa fa-btn fa-user"></i> User profile
             </div>
+            {% for type, messages in app.flashes %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ type }}">{{ message }}</div>
+                {% endfor %}
+            {% endfor %}
             <table class="table">
               {% for key, item in user %}
                 <tr>
@@ -17,7 +22,7 @@
               {% endfor %}
                 <tr>
                   <td colspan="2" align="right">
-                    <a class="btn btn-dark" href="{{ path('registration') }}">
+                    <a class="btn btn-dark" href="{{ path('password') }}">
                       <i class="fa fa-key" aria-hidden="true"></i> Change password
                     </a>
                   </td>
