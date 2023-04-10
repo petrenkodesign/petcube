@@ -25,7 +25,7 @@ class AdminController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $user = $em->getRepository("App\Entity\User")->find($request->get('id'));
             $status = $request->get('method') == 'approve' ? true : false;
-            $user->setApproved(true);
+            $user->setApproved($status);
             $em->flush();
         }
 
