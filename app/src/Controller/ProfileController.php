@@ -15,7 +15,7 @@ class ProfileController extends AbstractController
     public function index(Request $request)
     {
         // If the user is not logged in, redirect to the login page
-        if(!$this->getUser()) {
+        if(!$this->getUser() || !$this->getUser()->getApproved()) {
             return $this->redirectToRoute('login');
         }
 
