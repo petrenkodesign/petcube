@@ -27,7 +27,7 @@ RUN chmod -R 775 /var/www/html/
 RUN composer install
 
 #create database
-RUN php bin/console doctrine:database:create 
+#RUN php bin/console doctrine:database:create 
 #entry migration
 RUN php bin/console doctrine:schema:update --force
 #add admin user for dashboard

@@ -1,4 +1,4 @@
-# Petcube - test APP
+# Petcube - test APP # v.1.0.2
 
 web application that consists of two pages: a main landing page and a dashboard page.
 
@@ -16,7 +16,7 @@ Docker-compose 1.20.x
 
 ## Installation
 
-### Step 1: :
+### Step 1:
 
 download an unzip repository or use git clone command:
 
@@ -38,13 +38,27 @@ or use bash script
 
 ### Step 3:
 
+#### For building project manually use next commands:
+
+run the console on the container that has php installed
+
+``docker-compose exec php /bin/bash``
+
+resolves the project dependencies, and installs them
+
+``composer install``
+
 run the following command to create a database
 
 ``php bin/console doctrine:database:create``
 
-migration, create table from entry
+database migration, create table from entity
 
 ``php bin/console doctrine:schema:update --force``
+
+create user with administrator privileges
+
+``php bin/console app:create-admin --username=admin --email=admin@admin --password=admin --no-interaction``
 
 
 ### Step 4: Change variables in .env file:
@@ -62,7 +76,7 @@ for link to dashboard use link below
 or click to qr code in navigation menu on start landing page
 
 
-#### Additional
+#### Additional ####
 
 Default administrator credential
 
@@ -78,3 +92,12 @@ To clear Symfony cache, run the following command:
 Regenerate the list of all classes in the app
 
 ``composer dump-autoload``
+
+Application structure
+
+``http://localhost:8080/``              - home landing page
+``http://localhost:8080/profile``       - user profile
+``http://localhost:8080/password``      - password change page
+``http://localhost:8080/login``         - authorization page
+``http://localhost:8080/registration``  - registration page
+``http://localhost:8080/admin``         - admin control panel page
