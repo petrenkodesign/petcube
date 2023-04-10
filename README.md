@@ -64,6 +64,13 @@ or click to qr code in navigation menu on start landing page
 
 #### Additional
 
+Default administrator credential
+
+username: ``admin@admin``
+password: ``admin``
+
+you can change your password on dashboard, link /password 
+
 To clear Symfony cache, run the following command:
 
 ``php bin/console cache:clear``
