@@ -8,10 +8,10 @@ web application that consists of two pages: a main landing page and a dashboard 
 
 ## Requirements
 
-PHP 7.4.x
-Symfony 4.4.x
-Docker 18.03.x
-Docker-compose 1.20.x
+PHP 7.4.x\
+Symfony 4.4.x\
+Docker 18.03.x\
+Docker-compose 1.20.x\
 ---
 
 ## Installation
@@ -80,7 +80,7 @@ or click to qr code in navigation menu on start landing page
 
 Default administrator credential
 
-username: ``admin@admin``
+username: ``admin@admin``\
 password: ``admin``
 
 you can change your password on dashboard, link /password 
@@ -96,8 +96,13 @@ Regenerate the list of all classes in the app
 Application structure
 
 ``http://localhost:8080/``              - home landing page
+
 ``http://localhost:8080/profile``       - user profile
+
 ``http://localhost:8080/password``      - password change page
+
 ``http://localhost:8080/login``         - authorization page
+
 ``http://localhost:8080/registration``  - registration page
+
 ``http://localhost:8080/admin``         - admin control panel page

@@ -31,4 +31,4 @@ RUN composer install
 #entry migration
 RUN php bin/console doctrine:schema:update --force
 #add admin user for dashboard
-RUN php bin/console app:create-admin --username=admin --email=admin@admin --password=admin --no-interaction
+# RUN php bin/console app:create-admin --username=admin --email=admin@admin --password=admin --no-interaction
