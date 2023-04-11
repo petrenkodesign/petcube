@@ -12,7 +12,7 @@ services:
     ports:
       - '4306:3306'
     volumes:
-      - './db:/usr/local/var/mysql'
+      - './db:/var/lib/mysql' # MACx mysql lib directory -> /usr/local/var/mysql
   php:
     container_name: php
     build:
